@@ -36,9 +36,7 @@ app.use('/api/patients', require('./routes/patients'));
 app.use('/api/appointments', require('./routes/appointments'));
 app.use('/api/reports', require('./routes/reports'));
 app.use('/api/bills', require('./routes/bills'));
-
-// Additional routes will be added in next phases
-// app.use('/api/admin', require('./routes/admin'));
+app.use('/api/admin', require('./routes/admin'));
 // app.use('/api/appointments', require('./routes/appointments'));
 // app.use('/api/reports', require('./routes/reports'));
 // app.use('/api/bills', require('./routes/bills'));

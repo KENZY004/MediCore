@@ -1,0 +1,85 @@
+# Test Admin & Analytics Endpoints
+
+## 1. Get Dashboard Analytics
+GET http://localhost:5000/api/admin/analytics
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 2. Get All Users
+GET http://localhost:5000/api/admin/users?page=1&limit=10
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 3. Get Users by Role
+GET http://localhost:5000/api/admin/users?role=doctor
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 4. Get Single User
+GET http://localhost:5000/api/admin/users/USER_ID_HERE
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 5. Get All Patients (Admin View)
+GET http://localhost:5000/api/admin/patients?page=1&limit=10
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 6. Get Single Patient (Admin View)
+GET http://localhost:5000/api/admin/patients/PATIENT_ID_HERE
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 7. Get All Appointments (Admin View)
+GET http://localhost:5000/api/admin/appointments?page=1&limit=10
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 8. Get Appointments by Status (Admin View)
+GET http://localhost:5000/api/admin/appointments?status=pending
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 9. Get Single Appointment (Admin View)
+GET http://localhost:5000/api/admin/appointments/APPOINTMENT_ID_HERE
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 10. Get All Reports (Admin View)
+GET http://localhost:5000/api/admin/reports?page=1&limit=10
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 11. Get Single Report (Admin View)
+GET http://localhost:5000/api/admin/reports/REPORT_ID_HERE
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 12. Get All Bills (Admin View)
+GET http://localhost:5000/api/admin/bills?page=1&limit=10
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 13. Get Bills by Payment Status (Admin View)
+GET http://localhost:5000/api/admin/bills?paymentStatus=pending
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
+
+## 14. Get Single Bill (Admin View)
+GET http://localhost:5000/api/admin/bills/BILL_ID_HERE
+Authorization: Bearer ADMIN_TOKEN_HERE
+
+###
