@@ -1,0 +1,66 @@
+# Test Bill Management Endpoints
+
+## 1. Create Bill (Admin/Reception)
+POST http://localhost:5000/api/bills
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "patientId": "PATIENT_ID_HERE",
+  "appointmentId": "APPOINTMENT_ID_HERE",
+  "services": [
+    {
+      "name": "Consultation Fee",
+      "cost": 500
+    },
+    {
+      "name": "Blood Pressure Test",
+      "cost": 200
+    },
+    {
+      "name": "Medicines",
+      "cost": 800
+    }
+  ],
+  "totalAmount": 1500,
+  "paymentMethod": "cash"
+}
+
+###
+
+## 2. Get All Bills (with pagination)
+GET http://localhost:5000/api/bills?page=1&limit=10
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 3. Get All Bills (filter by payment status)
+GET http://localhost:5000/api/bills?paymentStatus=pending
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 4. Get Single Bill
+GET http://localhost:5000/api/bills/BILL_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 5. Update Bill (Admin/Reception)
+PUT http://localhost:5000/api/bills/BILL_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "paymentStatus": "paid",
+  "paymentMethod": "upi",
+  "paymentId": "pay_ABC123XYZ"
+}
+
+###
+
+## 6. Download Bill PDF
+GET http://localhost:5000/api/bills/pdf/BILL_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###

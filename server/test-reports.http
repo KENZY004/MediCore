@@ -1,0 +1,61 @@
+# Test Report Management Endpoints
+
+## 1. Create Report (Admin/Doctor)
+POST http://localhost:5000/api/reports
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "appointmentId": "APPOINTMENT_ID_HERE",
+  "patientId": "PATIENT_ID_HERE",
+  "doctorId": "DOCTOR_ID_HERE",
+  "diagnosis": "Hypertension",
+  "prescription": "Amlodipine 5mg once daily for 30 days",
+  "labTests": [
+    {
+      "testName": "Blood Pressure",
+      "result": "140/90 mmHg",
+      "date": "2026-02-10"
+    }
+  ],
+  "notes": "Patient advised to reduce salt intake and exercise regularly"
+}
+
+###
+
+## 2. Get All Reports (with pagination)
+GET http://localhost:5000/api/reports?page=1&limit=10
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 3. Get Single Report
+GET http://localhost:5000/api/reports/REPORT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 4. Update Report (Admin/Doctor)
+PUT http://localhost:5000/api/reports/REPORT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "diagnosis": "Hypertension - Stage 1",
+  "prescription": "Amlodipine 5mg once daily, Aspirin 75mg once daily",
+  "notes": "Follow-up in 2 weeks"
+}
+
+###
+
+## 5. Delete Report (Admin Only)
+DELETE http://localhost:5000/api/reports/REPORT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 6. Download Report PDF
+GET http://localhost:5000/api/reports/pdf/REPORT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
