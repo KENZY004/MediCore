@@ -1,0 +1,91 @@
+# Test Appointment Management Endpoints
+
+## 1. Create Appointment (Admin/Reception/Patient)
+POST http://localhost:5000/api/appointments
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "patientId": "PATIENT_ID_HERE",
+  "doctorId": "DOCTOR_ID_HERE",
+  "date": "2026-02-10",
+  "time": "10:00",
+  "reason": "Regular checkup",
+  "notes": "Patient has mild fever"
+}
+
+###
+
+## 2. Get All Appointments (with pagination)
+GET http://localhost:5000/api/appointments?page=1&limit=10
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 3. Get All Appointments (filter by status)
+GET http://localhost:5000/api/appointments?status=pending
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 4. Get All Appointments (filter by date)
+GET http://localhost:5000/api/appointments?date=2026-02-10
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 5. Get All Appointments (combined filters)
+GET http://localhost:5000/api/appointments?status=approved&date=2026-02-10&sort=time&order=asc
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 6. Get Appointments by Doctor
+GET http://localhost:5000/api/appointments/doctor/DOCTOR_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 7. Get Appointments by Doctor (with status filter)
+GET http://localhost:5000/api/appointments/doctor/DOCTOR_ID_HERE?status=approved
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 8. Get Appointments by Patient
+GET http://localhost:5000/api/appointments/patient/PATIENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 9. Get Single Appointment
+GET http://localhost:5000/api/appointments/APPOINTMENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 10. Update Appointment (Admin/Reception/Doctor)
+PUT http://localhost:5000/api/appointments/APPOINTMENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "status": "approved",
+  "date": "2026-02-10",
+  "time": "11:00",
+  "notes": "Appointment confirmed"
+}
+
+###
+
+## 11. Send Email Notification (Admin/Reception)
+POST http://localhost:5000/api/appointments/APPOINTMENT_ID_HERE/notify
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 12. Delete Appointment (Admin Only)
+DELETE http://localhost:5000/api/appointments/APPOINTMENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###

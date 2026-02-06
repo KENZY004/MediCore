@@ -33,9 +33,10 @@ app.get('/api/health', (req, res) => {
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/patients', require('./routes/patients'));
+app.use('/api/appointments', require('./routes/appointments'));
 
 // Additional routes will be added in next phases
-// app.use('/api/appointments', require('./routes/appointments'));
+// app.use('/api/reports', require('./routes/reports'));
 // app.use('/api/appointments', require('./routes/appointments'));
 // app.use('/api/reports', require('./routes/reports'));
 // app.use('/api/bills', require('./routes/bills'));
