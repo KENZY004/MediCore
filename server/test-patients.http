@@ -1,0 +1,87 @@
+# Test Patient Management Endpoints
+
+## 1. Create Patient (Admin/Reception)
+POST http://localhost:5000/api/patients
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 35,
+  "gender": "Male",
+  "phone": "9876543210",
+  "address": "123 Main Street, City"
+}
+
+###
+
+## 2. Create Another Patient
+POST http://localhost:5000/api/patients
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "age": 28,
+  "gender": "Female",
+  "phone": "9876543211",
+  "address": "456 Oak Avenue, City"
+}
+
+###
+
+## 3. Get All Patients (with pagination)
+GET http://localhost:5000/api/patients?page=1&limit=10
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 4. Get All Patients (with search)
+GET http://localhost:5000/api/patients?search=John
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 5. Get All Patients (with filter by gender)
+GET http://localhost:5000/api/patients?gender=Male
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 6. Get All Patients (with sorting)
+GET http://localhost:5000/api/patients?sort=name&order=asc
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 7. Search Patients
+GET http://localhost:5000/api/patients/search?q=John
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 8. Get Single Patient
+GET http://localhost:5000/api/patients/PATIENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 9. Update Patient (Admin/Reception)
+PUT http://localhost:5000/api/patients/PATIENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "name": "John Doe Updated",
+  "age": 36,
+  "phone": "9876543210",
+  "address": "789 New Street, City"
+}
+
+###
+
+## 10. Delete Patient (Admin Only)
+DELETE http://localhost:5000/api/patients/PATIENT_ID_HERE
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
