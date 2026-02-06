@@ -1,0 +1,47 @@
+# Test Authentication Endpoints
+
+## 1. Register Admin User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test Admin",
+  "email": "admin@medicore.com",
+  "password": "admin123",
+  "role": "admin"
+}
+
+###
+
+## 2. Register Doctor
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Dr. Smith",
+  "email": "doctor@medicore.com",
+  "password": "doctor123",
+  "role": "doctor"
+}
+
+###
+
+## 3. Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@medicore.com",
+  "password": "admin123"
+}
+
+###
+
+## 4. Get Current User (Protected Route)
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+## 5. Health Check
+GET http://localhost:5000/api/health
